@@ -2,13 +2,345 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2c05a61-6cfb-4a48-97d7-febec326fa67" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/network.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/notebook_utils.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/setup.cfg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/trainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/@plugins_snapshot.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/__future__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/__future__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/_ast.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/_ast.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/_importlib_modulespec.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/_importlib_modulespec.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/_random.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/_random.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/_weakref.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/_weakref.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/_weakrefset.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/_weakrefset.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/abc.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/abc.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/argparse.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/argparse.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/array.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/array.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/ast.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/ast.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/atexit.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/atexit.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/builtins.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/builtins.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/codecs.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/codecs.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/collections/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/collections/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/collections/abc.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/collections/abc.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/contextlib.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/contextlib.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/copy.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/copy.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/ctypes/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/ctypes/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/datetime.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/datetime.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/difflib.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/difflib.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/functools.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/functools.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/importlib/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/importlib/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/importlib/abc.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/importlib/abc.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/importlib/machinery.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/importlib/machinery.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/importlib/util.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/importlib/util.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/inspect.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/inspect.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/io.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/io.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/itertools.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/itertools.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/json/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/json/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/json/decoder.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/json/decoder.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/json/encoder.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/json/encoder.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/math.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/math.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/mmap.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/mmap.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/network.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/network.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/notebook_utils.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/notebook_utils.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/numbers.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/numbers.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/operator.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/operator.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/os/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/os/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/os/path.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/os/path.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/pathlib.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/pathlib.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/pickle.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/pickle.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/posix.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/posix.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/queue.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/queue.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/random.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/random.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/shutil.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/shutil.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/string.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/string.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/struct.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/struct.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/subprocess.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/subprocess.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/sys.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/sys.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/tarfile.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/tarfile.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/tempfile.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/tempfile.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/textwrap.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/textwrap.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/threading.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/threading.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/time.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/time.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_jit_internal.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_jit_internal.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_six.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_six.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_tensor_str.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_tensor_str.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_thnn/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_thnn/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_thnn/utils.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_thnn/utils.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_utils.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_utils.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_utils_internal.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/_utils_internal.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/_functions/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/_functions/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/_functions/tensor.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/_functions/tensor.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/_functions/utils.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/_functions/utils.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/function.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/function.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/grad_mode.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/autograd/grad_mode.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/backends/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/backends/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/backends/cudnn/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/backends/cudnn/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/backends/cudnn/rnn.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/backends/cudnn/rnn.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/contrib/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/contrib/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/contrib/_graph_vis.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/contrib/_graph_vis.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/cuda/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/cuda/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/cuda/_utils.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/cuda/_utils.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/cuda/comm.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/cuda/comm.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/cuda/nccl.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/cuda/nccl.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/distributed/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/distributed/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/distributed/deprecated/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/distributed/deprecated/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/distributed/deprecated/remote_types.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/distributed/deprecated/remote_types.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/distributed/distributed_c10d.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/distributed/distributed_c10d.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/distributed/rendezvous.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/distributed/rendezvous.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/functional.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/functional.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/jit/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/jit/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/jit/annotations.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/jit/annotations.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/jit/frontend.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/jit/frontend.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_VF.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_VF.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/auto.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/auto.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/auto_double_backwards.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/auto_double_backwards.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/auto_symbolic.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/auto_symbolic.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/normalization.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/normalization.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/sparse.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/thnn/sparse.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/vision.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_functions/vision.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_reduction.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/_reduction.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/backends/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/backends/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/backends/backend.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/backends/backend.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/backends/thnn.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/backends/thnn.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/functional.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/functional.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/grad.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/grad.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/init.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/init.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/_functions.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/_functions.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/activation.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/activation.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/adaptive.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/adaptive.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/batchnorm.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/batchnorm.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/container.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/container.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/conv.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/conv.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/distance.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/distance.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/dropout.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/dropout.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/fold.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/fold.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/instancenorm.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/instancenorm.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/linear.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/linear.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/loss.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/loss.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/module.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/module.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/normalization.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/normalization.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/padding.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/padding.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/pixelshuffle.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/pixelshuffle.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/pooling.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/pooling.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/rnn.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/rnn.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/sparse.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/sparse.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/upsampling.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/upsampling.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/utils.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/modules/utils.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/_functions.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/_functions.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/data_parallel.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/data_parallel.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/deprecated/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/deprecated/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/deprecated/distributed.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/deprecated/distributed.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/deprecated/distributed_cpu.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/deprecated/distributed_cpu.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/distributed.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/distributed.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/distributed_cpu.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/distributed_cpu.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/parallel_apply.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/parallel_apply.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/replicate.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/replicate.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/scatter_gather.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parallel/scatter_gather.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parameter.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/parameter.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/clip_grad.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/clip_grad.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/convert_parameters.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/convert_parameters.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/rnn.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/rnn.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/spectral_norm.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/spectral_norm.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/weight_norm.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/nn/utils/weight_norm.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/optim/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/optim/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/optim/adam.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/optim/adam.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/optim/lr_scheduler.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/optim/lr_scheduler.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/optim/optimizer.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/optim/optimizer.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/optim/sgd.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/optim/sgd.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/random.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/random.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/serialization.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/serialization.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/testing/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/testing/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/data/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/data/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/data/dataloader.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/data/dataloader.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/data/dataset.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/data/dataset.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/data/distributed.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/data/distributed.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/data/sampler.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/data/sampler.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/hooks.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/utils/hooks.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/version.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/torch/version.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/train.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/train.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/trainer.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/trainer.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/types.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/types.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/typing.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/typing.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/urllib/__init__.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/urllib/__init__.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/urllib/parse.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/urllib/parse.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/warnings.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/warnings.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/weakref.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/weakref.meta.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/zipfile.data.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.mypy_cache/3.7/zipfile.meta.json" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +366,7 @@
         <entry file="file://$PROJECT_DIR$/network.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
+              <caret column="24" selection-start-column="24" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -43,7 +375,7 @@
         <entry file="file://$PROJECT_DIR$/trainer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="827">
-              <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+              <caret line="83" selection-start-line="83" selection-end-line="83" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -56,21 +388,30 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="48">
-                <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+                <caret line="3" selection-start-line="3" selection-end-line="3" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notebook_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="827">
-              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+            <state relative-caret-position="539">
+              <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="16">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
             </state>
           </provider>
         </entry>
@@ -83,6 +424,11 @@
         <option value="Python Script" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>mypy</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -97,6 +443,7 @@
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/notebook_utils.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -137,6 +484,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -149,6 +497,11 @@
         <option name="mySdkHome" value="/usr/local/bin/python3.6" />
       </console-settings>
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -201,25 +554,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1563875502978</updated>
-      <workItem from="1563875504315" duration="8933000" />
+      <workItem from="1563875504315" duration="9418000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8933000" />
+    <option name="totallyTimeSpent" value="9418000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1120" y="0" width="1440" height="1440" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13876967" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13876967" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Python Console" />
-      <window_info anchor="bottom" id="Terminal" visible="true" weight="0.2919708" />
+      <window_info active="true" anchor="bottom" id="Terminal" visible="true" weight="0.2919708" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -271,14 +624,14 @@
     <entry file="file://$PROJECT_DIR$/network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="24" lean-forward="true" selection-start-column="24" selection-end-column="24" />
+          <caret column="24" selection-start-column="24" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/trainer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="827">
-          <caret line="83" lean-forward="true" selection-start-line="83" selection-end-line="83" />
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
           </folding>
@@ -289,7 +642,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="48">
-            <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            <caret line="3" selection-start-line="3" selection-end-line="3" />
           </first_editor>
           <second_editor />
         </state>
@@ -297,11 +650,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/notebook_utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="827">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+        <state relative-caret-position="539">
+          <caret line="42" column="37" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
