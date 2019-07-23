@@ -31,10 +31,11 @@ class CifarResnet18(nn.Module):
         torch.save(checkpoint, path_to_ckpt)
 
     def evaluate(self,
+                 device: torch.device,
                  dataset: DatasetFolder,
                  batch_size: int
                  ) -> Tuple[List[int], List[int]]:
-        self._model.to(self._device)
+        self._model.to(device)
         self._model.eval()
 
         loader = DataLoader(dataset=dataset, shuffle=False,
@@ -46,7 +47,7 @@ class CifarResnet18(nn.Module):
 
         with torch.no_grad():
             for img, label in tqdm(loader):
-                pred = torch.argmax(self._model(img.to(self._device)), dim=1)
+                pred = torch.argmax(self._model(img.to(device)), dim=1)
 
                 preds.extend(pred.detach().cpu().numpy().tolist())
                 gts.extend(label)

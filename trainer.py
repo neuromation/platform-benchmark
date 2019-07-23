@@ -32,8 +32,8 @@ class Trainer:
 
         self._criterion = nn.CrossEntropyLoss()
         self._optimizer = optim.SGD(params=self._model.parameters(), lr=1e-1)
-        self._i_global = 0
         self._device = device('cuda:0') if is_cuda_avai() else device('cpu')
+        self._i_global = 0
 
     def train_epoch(self) -> None:
         self._model.to(self._device)
@@ -57,10 +57,11 @@ class Trainer:
             self._i_global += 1
 
     def test(self) -> float:
-        preds, gts = self._model.evaluate(dataset=self._test_set,
+        preds, gts = self._model.evaluate(device=self._device,
+                                          dataset=self._test_set,
                                           batch_size=self._batch_size)
 
-        accuracy = (np.array(preds) == np.array(gts)) / len(preds)
+        accuracy = sum(np.array(preds) == np.array(gts)) / len(preds)
         self._writer.add_scalar('accuracy', accuracy, self._i_global)
 
         return accuracy
@@ -68,6 +69,8 @@ class Trainer:
     def train(self, n_epoch: int) -> None:
         for i in range(1, n_epoch + 1):
             self.train_epoch()
-            self.test()
+            acc = self.test()
+
+            print(f'Epoch {i} | accuracy: {acc}')
 
         self._model.save(self._log_dir / 'last.ckpt')

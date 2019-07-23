@@ -33,7 +33,7 @@ def get_datasets(train_root: Path,
 
 def main(args: Namespace) -> None:
     train_set, test_set = get_datasets(train_root=args.data_root / 'train',
-                                       test_root=args.test_root / 'test')
+                                       test_root=args.data_root / 'test')
 
     model = CifarResnet18(pretrained=True)
 
@@ -49,7 +49,7 @@ def get_parser() -> ArgumentParser:
     parser.add_argument('--data_root', dest='data_root', type=Path)
     parser.add_argument('--log_dir', dest='log_dir', type=Path)
 
-    parser.add_argument('--n_epoch', dest='n_epoch', type=int, default=100)
+    parser.add_argument('--n_epoch', dest='n_epoch', type=int, default=5)
     parser.add_argument('--bs', dest='batch_size', type=int, default=512)
     return parser
 
