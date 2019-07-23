@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import List
 
 import PIL
@@ -8,6 +9,9 @@ from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 from sklearn.metrics import confusion_matrix
 from sklearn.utils.multiclass import unique_labels
+
+from network import CifarResnet18
+from train import get_datasets
 
 
 def canvas_to_img(canvas: FigureCanvas) -> PIL.Image:
@@ -49,12 +53,35 @@ def confusion_matrix_as_img(gts: np.ndarray,
     for i in range(conf_mat.shape[0]):
         for j in range(conf_mat.shape[1]):
             txt = '0' if conf_mat[i, j] == 0 else format(conf_mat[i, j], '.2f')
+            is_more = conf_mat[i, j] > conf_mat.max() / 2.
             ax.text(x=j, y=i, s=txt,
                     ha="center", va="center",
-                    color="white" if conf_mat[i, j] > conf_mat.max() / 2. else "black",
+                    color="white" if is_more else "black",
                     size=int(0.6 * font)
                     )
 
     fig.tight_layout()
     pil_image = canvas_to_img(canvas)
     return pil_image
+
+
+def compute_conf_mat(test_dir: Path, path_to_ckpt: Path) -> Image:
+    model = CifarResnet18.from_ckpt(path_to_ckpt)
+
+    _, test_set = get_datasets(train_root=test_dir, test_root=test_dir)
+
+    preds, gts = model.evaluate(dataset=test_set, batch_size=512)
+
+    conf_mat = confusion_matrix_as_img(gts=np.ndarray(gts),
+                                       preds=np.ndarray(preds),
+                                       classes=1)
+
+    return conf_mat
+
+
+def compute_and_show_conf_mat(test_dir: Path, path_to_ckpt: Path) -> None:
+    conf_mat = compute_conf_mat(test_dir=test_dir, path_to_ckpt=path_to_ckpt)
+
+    plt.figure(figsize=(12, 12))
+    plt.imshow(conf_mat)
+    plt.show()

@@ -1,9 +1,13 @@
 from pathlib import Path
+from typing import List, Tuple
 
 import torch
 from torch import Tensor
 from torch import nn
+from torch.utils.data import DataLoader
+from torchvision.datasets import DatasetFolder
 from torchvision.models import resnet18
+from tqdm import tqdm
 
 CIFAR_SIZE = 10
 
@@ -26,8 +30,31 @@ class CifarResnet18(nn.Module):
         checkpoint = {'state_dict': self._model.state_dict()}
         torch.save(checkpoint, path_to_ckpt)
 
+    def evaluate(self,
+                 dataset: DatasetFolder,
+                 batch_size: int
+                 ) -> Tuple[List[int], List[int]]:
+        self._model.to(self._device)
+        self._model.eval()
+
+        loader = DataLoader(dataset=dataset, shuffle=False,
+                            num_workers=4, batch_size=batch_size,
+                            drop_last=False)
+
+        preds: List[int] = []
+        gts: List[int] = []
+
+        with torch.no_grad():
+            for img, label in tqdm(loader):
+                pred = torch.argmax(self._model(img.to(self._device)), dim=1)
+
+                preds.extend(pred.detach().cpu().numpy().tolist())
+                gts.extend(label)
+
+        return preds, gts
+
     @classmethod
-    def from_ckpt(cls, path_to_ckpt: Path) -> nn.Module:
+    def from_ckpt(cls, path_to_ckpt: Path) -> 'CifarResnet18':
         cifar_resnet18 = cls(pretrained=False)
 
         checkpoint = torch.load(path_to_ckpt, map_location='cpu')

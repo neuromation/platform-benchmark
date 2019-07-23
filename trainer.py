@@ -1,12 +1,11 @@
 from pathlib import Path
-from typing import List
 
 import numpy as np
-import torch
 from tensorboardX import SummaryWriter
 from torch import device
 from torch import nn
 from torch import optim
+from torch.cuda import is_available as is_cuda_avai
 from torch.utils.data import DataLoader
 from torchvision.datasets import DatasetFolder
 from tqdm import tqdm
@@ -26,21 +25,23 @@ class Trainer:
         self._train_set = train_set
         self._test_set = test_set
         self._model = model
+        self._log_dir = log_dir
         self._batch_size = batch_size
 
         self._writer = SummaryWriter(log_dir / 'board')
 
         self._criterion = nn.CrossEntropyLoss()
         self._optimizer = optim.SGD(params=self._model.parameters(), lr=1e-1)
-        self._device = device('cuda:0') if torch.cuda.is_available() else device('cpu')
         self._i_global = 0
+        self._device = device('cuda:0') if is_cuda_avai() else device('cpu')
 
     def train_epoch(self) -> None:
         self._model.to(self._device)
         self._model.train()
 
-        loader = DataLoader(dataset=self._train_set, batch_size=self._batch_size,
-                            shuffle=True, num_workers=4, drop_last=True)
+        loader = DataLoader(dataset=self._train_set, shuffle=True,
+                            num_workers=4, batch_size=self._batch_size,
+                            drop_last=True)
 
         for img, label in tqdm(loader):
             self._optimizer.zero_grad()
@@ -56,23 +57,12 @@ class Trainer:
             self._i_global += 1
 
     def test(self) -> float:
-        self._model.to(self._device)
-        self._model.eval()
-
-        loader = DataLoader(dataset=self._test_set, batch_size=self._batch_size,
-                            shuffle=False, num_workers=4, drop_last=False)
-
-        preds: List[int] = []
-        gts: List[int] = []
-
-        with torch.no_grad():
-            for img, label in tqdm(loader):
-                pred = torch.argmax(self._model(img.to(self._device)), dim=1)
-
-                preds.extend(pred.detach().cpu().numpy().tolist())
-                gts.extend(label)
+        preds, gts = self._model.evaluate(dataset=self._test_set,
+                                          batch_size=self._batch_size)
 
         accuracy = (np.array(preds) == np.array(gts)) / len(preds)
+        self._writer.add_scalar('accuracy', accuracy, self._i_global)
+
         return accuracy
 
     def train(self, n_epoch: int) -> None:
@@ -80,4 +70,4 @@ class Trainer:
             self.train_epoch()
             self.test()
 
-        self._model.save(self.log_dir / 'last.ckpt')
+        self._model.save(self._log_dir / 'last.ckpt')
