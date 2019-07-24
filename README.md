@@ -12,7 +12,7 @@ your local gpu server. For each platform, we created an additional branch so tha
 can clearly see what commands and changes you need to add to the project 
 to run the proposed task.
 
-Disclaimer. Please note that we do not use techniques to improve the accuracy of the model
+**Disclaimer**. Please note that we do not use techniques to improve the accuracy of the model
 (sush as data augmentations, learning rate scheduling e.t.c), since our goal is to compare
 platforms. As a result, we made the code as simple as possible.
 
@@ -22,11 +22,12 @@ As a benchmark, we propose to solve the task of images classification on
 [Cifar10](https://www.cs.toronto.edu/~kriz/cifar.html) dataset.
 We have prepared images in `.png` format arranged in folders
 [here](https://drive.google.com/open?id=1a-X4mZ5y6hQ0aX6-bNG6HU-Tfdom1lh6).
-Also, you can get this dataset by writing one line of code in
+Also, dataset is also available by writing one line of code in
 [pytorch](https://pytorch.org/docs/stable/torchvision/datasets.html#cifar),
 but in our opinion working with files give a more knowledge of the platforms.
 We will follow a common scenario when working with each platform
-and write down all your actions.
+and write down all our actions in [Scenario.md](Scenario.md)
+(change a branch to see scenario implementation for each platform).
 
 
 ## Comparison results
@@ -42,6 +43,3 @@ At all points of comparison, we rated 1, 2 or 3.
 | Azure AI            |                                  |                  |                            |                                |                        |
 | Determined.ai       |                                  |                  |                            |                                |                        |
 | Databricks          |                                  |                  |                            |                                |                        |
-
-
-[Scenario.md](Scenario.md)
