@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import numpy as np
+import torch
 from tensorboardX import SummaryWriter
 from torch import device
 from torch import nn
@@ -10,7 +11,7 @@ from torch.utils.data import DataLoader
 from torchvision.datasets import DatasetFolder
 from tqdm import tqdm
 
-from network import CifarResnet18
+from network import CifarResnet18, CIFAR_SIZE
 
 
 class Trainer:
@@ -30,10 +31,18 @@ class Trainer:
 
         self._writer = SummaryWriter(log_dir / 'board')
 
-        self._criterion = nn.CrossEntropyLoss()
         self._optimizer = optim.SGD(params=self._model.parameters(), lr=1e-1)
         self._device = device('cuda:0') if is_cuda_avai() else device('cpu')
         self._i_global = 0
+
+        # Criterion with special weight
+        weights = torch.ones(CIFAR_SIZE)
+        weights[5] = 2
+        weights.to(self._device)
+        self._criterion = nn.CrossEntropyLoss(weight=weights)
+
+        # Criterion with uniform weights
+        # self._criterion = nn.CrossEntropyLoss()
 
     def train_epoch(self) -> None:
         self._model.to(self._device)

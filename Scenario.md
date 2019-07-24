@@ -19,6 +19,8 @@ Share and pick up results:
 
 ## Scenario Implementation for **GPU-server on linux**
 
+### Main part
+
 #### 0. User registration
 It assumed, that user's credentials already added to server.
 
@@ -45,3 +47,20 @@ It assumed, that user's credentials already added to server.
 
 
 #### 5. Visualize predictions
+* Go to code directory via `cd $$PATH_TO_CODE`,
+* run jupyter `jupyter notebook --no-browser --allow-root  --port $JUP_PORT`
+* and start listening this port on your machine `ssh -L $JUP_PORT:localhost:$JUP_PORT -p $PORT $USER@$IP`
+* Finally, open `http://localhost:$JUP_PORT` in your browser, copy token and run
+visualization in jupyter.
+
+
+#### 6. Run train again with more weight of worst class.
+* Change code a little bit (add few strings for weights)
+* Add changes to `git` and push them to server
+* Run train again `python train.py --log_dir $PATH_TO_LOGS --data_root $PATH_TO_CIFAR`
+
+### Share and pick up results:
+
+#### 1. Download checkpoint
+#### 2. Share checkpoint with other platform's users.
+#### 3. Share trained model with non specialists using jupyter.
