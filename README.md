@@ -19,15 +19,19 @@ platforms. As a result, we made the code as simple as possible.
 
 ## Task defenition
 As a benchmark, we propose to solve the task of images classification on
-[Cifar10](https://www.cs.toronto.edu/~kriz/cifar.html) dataset.
+[CIFAR10](https://www.cs.toronto.edu/~kriz/cifar.html) dataset.
+The dataset consists of 60000 32x32 colour images in 10 classes,
+with 6000 images per class. There are 50000 training images and 10000 test images. 
+
 We have prepared images in `.png` format arranged in folders
-[here](https://drive.google.com/open?id=1a-X4mZ5y6hQ0aX6-bNG6HU-Tfdom1lh6).
+[here](https://drive.google.com/open?id=1a-X4mZ5y6hQ0aX6-bNG6HU-Tfdom1lh6) [140 MB].
 Also, dataset is also available by writing one line of code in
 [pytorch](https://pytorch.org/docs/stable/torchvision/datasets.html#cifar),
 but in our opinion working with files give a more knowledge of the platforms.
+
 We will follow a common scenario when working with each platform
 and write down all our actions in [Scenario.md](Scenario.md)
-(change a branch to see scenario implementation for each platform).
+(please, change a branch to see scenario implementation for each platform).
 
 
 ## Comparison results
