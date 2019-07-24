@@ -4,12 +4,15 @@ from typing import List
 import PIL
 import matplotlib.pyplot as plt
 import numpy as np
+import torch
 from PIL.Image import Image
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 from sklearn.metrics import confusion_matrix
 from sklearn.utils.multiclass import unique_labels
+from torch.cuda import is_available as is_avai
 
+from network import CIFAR_SIZE
 from network import CifarResnet18
 from train import get_datasets
 
@@ -70,11 +73,12 @@ def compute_conf_mat(test_dir: Path, path_to_ckpt: Path) -> Image:
 
     _, test_set = get_datasets(train_root=test_dir, test_root=test_dir)
 
-    preds, gts = model.evaluate(dataset=test_set, batch_size=512)
-
-    conf_mat = confusion_matrix_as_img(gts=np.ndarray(gts),
-                                       preds=np.ndarray(preds),
-                                       classes=1)
+    device = torch.device('cuda:0') if is_avai() else torch.device('cpu')
+    preds, gts = model.evaluate(dataset=test_set, batch_size=512, device=device)
+    classes = [f'#{i}' for i in range(CIFAR_SIZE)]
+    conf_mat = confusion_matrix_as_img(gts=np.array(gts),
+                                       preds=np.array(preds),
+                                       classes=classes)
 
     return conf_mat
 
@@ -84,4 +88,6 @@ def compute_and_show_conf_mat(test_dir: Path, path_to_ckpt: Path) -> None:
 
     plt.figure(figsize=(12, 12))
     plt.imshow(conf_mat)
+    plt.axis('off')
+    plt.title('Confusion matrix')
     plt.show()

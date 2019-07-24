@@ -50,7 +50,7 @@ class CifarResnet18(nn.Module):
                 pred = torch.argmax(self._model(img.to(device)), dim=1)
 
                 preds.extend(pred.detach().cpu().numpy().tolist())
-                gts.extend(label)
+                gts.extend(label.numpy().tolist())
 
         return preds, gts
 
