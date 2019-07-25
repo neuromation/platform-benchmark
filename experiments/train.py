@@ -1,34 +1,9 @@
 from argparse import ArgumentParser, Namespace
 from pathlib import Path
-from typing import Tuple
 
-import PIL
-import torchvision.transforms as t
-from torchvision.datasets import DatasetFolder
-
+from dataset import get_datasets
 from network import CifarResnet18
 from trainer import Trainer
-
-
-def get_datasets(train_root: Path,
-                 test_root: Path
-                 ) -> Tuple[DatasetFolder, DatasetFolder]:
-    std = (0.229, 0.224, 0.225)  # for pretrained on Imagenet
-    mean = (0.485, 0.456, 0.406)  # for pretrained on Imagenet
-
-    transforms = t.Compose([t.ToTensor(), t.Normalize(mean=mean, std=std)])
-
-    read_func, ext = PIL.Image.open, ['png']
-
-    train_set = DatasetFolder(root=train_root, loader=read_func,
-                              extensions=ext, transform=transforms,
-                              target_transform=None)
-
-    test_set = DatasetFolder(root=test_root, loader=read_func,
-                             extensions=ext, transform=transforms,
-                             target_transform=None)
-
-    return train_set, test_set
 
 
 def main(args: Namespace) -> None:

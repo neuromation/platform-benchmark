@@ -2,6 +2,7 @@ from pathlib import Path
 from typing import List, Tuple
 
 import torch
+from PIL.Image import Image
 from torch import Tensor
 from torch import nn
 from torch.utils.data import DataLoader
@@ -9,7 +10,7 @@ from torchvision.datasets import DatasetFolder
 from torchvision.models import resnet18
 from tqdm import tqdm
 
-CIFAR_SIZE = 10
+from dataset import get_transforms, CIFAR_SIZE
 
 
 class CifarResnet18(nn.Module):
@@ -21,7 +22,7 @@ class CifarResnet18(nn.Module):
         self._model.avgpool = nn.AdaptiveAvgPool2d(1)
 
         hide_dim = self._model.fc.in_features
-        self.fc = nn.Linear(in_features=hide_dim, out_features=CIFAR_SIZE)
+        self._model.fc = nn.Linear(in_features=hide_dim, out_features=CIFAR_SIZE)
 
     def forward(self, img_batch: Tensor) -> Tensor:  # type: ignore
         return self._model(img_batch)
@@ -53,6 +54,14 @@ class CifarResnet18(nn.Module):
                 gts.extend(label.numpy().tolist())
 
         return preds, gts
+
+    def predict(self, image: Image, device: torch.device) -> int:
+        self._model.to(device)
+        self._model.eval()
+
+        img = get_transforms()(image).unsqueeze(0)
+        i_class = int(torch.argmax(self._model(img.to(device)), dim=1))
+        return i_class
 
     @classmethod
     def from_ckpt(cls, path_to_ckpt: Path) -> 'CifarResnet18':
