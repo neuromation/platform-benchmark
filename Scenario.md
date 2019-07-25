@@ -13,7 +13,7 @@ Main part:
 Share and pick up results:
 1. Download checkpoint
 2. Share checkpoint with other platform's users
-3. Present demo to non engineers using jupyter
+3. Present demo to non-engineers using jupyter
 ```
 
 
@@ -68,7 +68,7 @@ than go to `experiments/analyse_predict.ipynb`.
 * `sudo chmod 777 $PATH_TO_LOGS/last.ckpt`
 
 
-#### 3. Present demo to non engineers using jupyter
+#### 3. Present demo to non-engineers using jupyter
 * Go to code directory via `cd $PATH_TO_CODE`,
 * run jupyter `jupyter notebook --no-browser --allow-root  --port $JUP_PORT`
 * Now you need to add credentials of your non engineer member to your server and 
