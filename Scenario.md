@@ -55,7 +55,7 @@ than go to `experiments/analyse_predict.ipynb`.
 
 
 #### 6. Run training again with more weight of worst class.
-* Change code a little bit (add few strings for weights)
+* Change code a little bit (add few strings for changing weights in `experiments/trainer.py`)
 * Add changes to `git` and push them to server
 * Run train again `python experiments/train.py --log_dir $PATH_TO_LOGS --data_root $PATH_TO_CIFAR`
 
