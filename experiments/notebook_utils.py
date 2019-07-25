@@ -34,9 +34,9 @@ def compute_conf_mat(test_dir: Path, path_to_ckpt: Path) -> TImage:
     model = CifarResnet18.from_ckpt(path_to_ckpt)
 
     _, test_set = get_datasets(train_root=test_dir, test_root=test_dir)
-    device = get_device()
 
-    preds, gts = model.evaluate(dataset=test_set, batch_size=512, device=device)
+    preds, gts = model.evaluate(dataset=test_set, batch_size=512,
+                                device=get_device())
 
     conf_mat = confusion_matrix_as_img(gts=np.array(gts),
                                        preds=np.array(preds),

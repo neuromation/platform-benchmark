@@ -3,14 +3,13 @@ from typing import List, Tuple
 
 import torch
 from PIL.Image import Image
+from dataset import get_transforms, CIFAR_SIZE
 from torch import Tensor
 from torch import nn
 from torch.utils.data import DataLoader
 from torchvision.datasets import DatasetFolder
 from torchvision.models import resnet18
 from tqdm import tqdm
-
-from dataset import get_transforms, CIFAR_SIZE
 
 
 class CifarResnet18(nn.Module):
@@ -22,7 +21,8 @@ class CifarResnet18(nn.Module):
         self._model.avgpool = nn.AdaptiveAvgPool2d(1)
 
         hide_dim = self._model.fc.in_features
-        self._model.fc = nn.Linear(in_features=hide_dim, out_features=CIFAR_SIZE)
+        self._model.fc = nn.Linear(in_features=hide_dim,
+                                   out_features=CIFAR_SIZE)
 
     def forward(self, img_batch: Tensor) -> Tensor:  # type: ignore
         return self._model(img_batch)

@@ -1,10 +1,11 @@
 from pathlib import Path
 
 import numpy as np
+import torch
+from dataset import CIFAR_SIZE
 from network import CifarResnet18
 from tensorboardX import SummaryWriter
 from torch import nn
-from torch import optim
 from torch.utils.data import DataLoader
 from torchvision.datasets import DatasetFolder
 from tqdm import tqdm
@@ -28,18 +29,14 @@ class Trainer:
 
         self._writer = SummaryWriter(log_dir / 'board')
 
-        self._optimizer = optim.SGD(params=self._model.parameters(), lr=1e-1)
+        self._optimizer = torch.optim.SGD(params=self._model.parameters(), lr=1e-1)
         self._device = get_device()
         self._i_global = 0
 
-        # Criterion with special weight
-        # weights = torch.ones(CIFAR_SIZE)
-        # weights[5] = 2
-        # weights.to(self._device)
-        # self._criterion = nn.CrossEntropyLoss(weight=weights)
-
-        # Criterion with uniform weights
-        self._criterion = nn.CrossEntropyLoss()
+        weights = torch.ones(CIFAR_SIZE)
+        # increase weight for worst class (needed to define by conf matrix)
+        # weights[5] = 3
+        self._criterion = nn.CrossEntropyLoss(weights.to(self._device))
 
     def train_epoch(self) -> None:
         self._model.to(self._device)
