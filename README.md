@@ -37,7 +37,7 @@ and write down all our actions in [Scenario.md](Scenario.md)
 ## Comparison results
 At all points of comparison, we rated 1, 2 or 3.
 
-|                     | Convenience of working with data | Remote debugging | Sharing with engineers   |  Sharing with non engineers  | Sharing of environment |
+|                     | Data ingestion | Remote debugging | Sharing with engineers   |  Sharing with non-engineers  | Sharing datasets and environments |
 |---------------------|:--------------------------------:|:----------------:|----------------------------|--------------------------------|------------------------|
 | neuro               |                 3                |        3         |              3             |               3                |          3             |
 | AWS SageMaker       |                                  |                  |                            |                                |                        |
