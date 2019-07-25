@@ -22,11 +22,11 @@ Share and pick up results:
 ### Main part
 
 #### 0. User registration
-It assumed, that user's credentials already added to server.
+* It assumed, that user's credentials already added to server.
 
 
 #### 1. Upload dataset
-`rsync -rv -e "ssh -p $PORT" $USER@$IP:$PATH_TO_CIFAR $LOCAL_PATH_TO_CIFAR`
+* `rsync -rv -e "ssh -p $PORT" $USER@$IP:$PATH_TO_CIFAR $LOCAL_PATH_TO_CIFAR`
 
 
 #### 2. Upload code
@@ -62,5 +62,10 @@ visualization in jupyter.
 ### Share and pick up results:
 
 #### 1. Download checkpoint
+* `rsync -v -e "ssh -p $PORT" $LOCAL_PATH_TO_CKPT $USER@$IP:$PATH_TO_LOGS/last.ckpt`
+
 #### 2. Share checkpoint with other platform's users.
+* `sudo chmod 777 $PATH_TO_LOGS/last.ckpt`
+
+
 #### 3. Share trained model with non specialists using jupyter.
