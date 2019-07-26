@@ -54,7 +54,7 @@ class Trainer:
             loss.backward()
             self._optimizer.step()
 
-            loss_v = float(loss.detach().cpu())
+            loss_v = float(loss.item())
 
             self._writer.add_scalar('loss', loss_v, self._i_global)
             self._i_global += 1
