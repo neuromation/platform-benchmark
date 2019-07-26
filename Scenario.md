@@ -17,7 +17,7 @@ Share and pick up results:
 ```
 
 
-## Scenario Implementation for **GPU-server on linux**
+## Scenario Implementation for **Floydhub**
 
 ### Main part
 
