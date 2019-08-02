@@ -39,15 +39,16 @@ Note: We use PyCharm professional for the remote debug.
 * Upload this image to the platform: `neuro image push neuro:latest`
 * Start a job: 
 ```
-neuro submit \
+neuro run \
   --name training \
-  --cpu 4 --memory 16G --gpu 1 \
+  --preset gpu-small \
   --http 8888 --no-http-auth --detach \
-  --volume storage:$PATH_TO_CIFAR:/var/storage:ro \
+  --volume storage:$PATH_TO_CIFAR:/var/data:ro \
+  --volume storage:$PATH_TO_CODE:/var/project:rw \
   --volume storage:$PATH_TO_LOGS:/var/results:rw \
   image:neuro:latest
 ```
-* Expose container SSH port: `neuro port-forward training 2222:22`
+* Expose the job SSH port: `neuro port-forward training 2222:22`
 * In PyCharm Professional, add Python SSH Interpreter 
   with the following parameters:
 ```
@@ -62,7 +63,7 @@ Sync folders: <Project Root>->/var/project
 
 #### 3. Run a training script
 * In PyCharm Professional, add run Configuration for `experiments/train.py` script with the following 
- parameters: `--log_dir /var/results --data_root /var/storage`
+ parameters: `--log_dir /var/results --data_root /var/data`
 * Run this configuration. PyCharm now uploads source code to the Platform itself 
 and runs training.
 
@@ -70,15 +71,15 @@ and runs training.
 #### 4. Look at the training logs
 * Start another job:
 ```
-neuro submit \
-  --name tfl \
-  --cpu 1 --memory 1G --gpu 0 \
+neuro run \
+  --name tensorboard \
+  --preset cpu-small \
   --http 6006 --no-http-auth --detach \
   --volume storage:$PATH_TO_LOGS:/var/results:rw \
   tensorflow/tensorflow \
   'tensorboard --logdir=/var/results'
 ```
-* Open TensorBoard in browser: `neuro job browse tfl`, and see the graphics.
+* Open TensorBoard in browser: `neuro job browse tensorboard`, and see the graphics.
 
 
 #### 5. Visualize predictions
