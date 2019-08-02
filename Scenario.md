@@ -32,8 +32,10 @@ Share and pick up results:
 
 
 #### 2. Upload the code
-Note: We use PyCharm professional for the remote debug.
+* We use PyCharm Professional for the remote debug, so see next section.
 
+
+#### 3. Run a training script
 * Change a directory: `cd $LOCAL_PATH_TO_CODE`
 * Build a Docker image: `docker build -t neuro:latest .`
 * Upload this image to the platform: `neuro image push neuro:latest`
@@ -59,9 +61,6 @@ Interpreter: /usr/bin/python3.7
 Sync folders: <Project Root>->/var/project
 ``` 
 * Choose this interpreter as a project interpreter.
-
-
-#### 3. Run a training script
 * In PyCharm Professional, add run Configuration for `experiments/train.py` script with the following 
  parameters: `--log_dir /var/results --data_root /var/data`
 * Run this configuration. PyCharm now uploads source code to the Platform 
