@@ -64,7 +64,7 @@ Sync folders: <Project Root>->/var/project
 #### 3. Run a training script
 * In PyCharm Professional, add run Configuration for `experiments/train.py` script with the following 
  parameters: `--log_dir /var/results --data_root /var/data`
-* Run this configuration. PyCharm now uploads source code to the Platform itself 
+* Run this configuration. PyCharm now uploads source code to the Platform 
 and runs training.
 
 
@@ -104,7 +104,6 @@ neuro run \
 
 
 #### 3. Present a demo to non-engineers using Jupyter
-* Get a link to the Jupyter which runs in our first container:
+* Get a link to the Jupyter which runs inside our first job:
 `neuro job status training`, and share it with non-engineers.
 * They should open it in browser and run `experiments/demo.ipynb`.
-
