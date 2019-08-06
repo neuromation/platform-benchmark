@@ -44,7 +44,7 @@ At all points of comparison, we rated 0, 1, 2, or 3.
 | AWS SageMaker       |       |       |       |       |       |       |
 | Google AI Platform  |       |       |       |       |       |       |
 | Azure AI            |       |       |       |       |       |       |
-| Floydhub            |       |       |       |       |       |       |
+| Floydhub            |   2   |   3   |   0   |   2   |   0   |   3   |
 | Paperspace Gradient |       |       |       |       |       |       |
 | Determined.ai       |       |       |       |       |       |       |
 | Databricks          |       |       |       |       |       |       |
