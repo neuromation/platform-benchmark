@@ -79,6 +79,7 @@ where you can download output data such as checkpoint.
 * You can share your checkpont with other users only if you upload it as `dataset`
 * Thus, you firstly need to download the checkpoint as in step 1
 * And upload it as dataset as in step 1 from main part
+
 (Perhaps, if you use a team subscription plan, this step may be much more convenient.)
 
 
