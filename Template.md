@@ -99,3 +99,4 @@ setup.cfg - linter settings
 If so, should we use our image instead of `tensorflow/tensorflow`?
 * We can add SSH support in Docker; then we'll need to run a develop job 
 and port-forward it.
+* How to add setup.py? What does it normally include?
