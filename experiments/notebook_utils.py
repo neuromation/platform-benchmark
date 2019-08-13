@@ -3,9 +3,10 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL.Image import Image as TImage
-from dataset import CLASSES_NAMES, get_datasets
-from network import CifarResnet18
-from utils import get_device, get_image_by_url, confusion_matrix_as_img
+
+from experiments.dataset import CLASSES_NAMES, get_datasets
+from experiments.network import CifarResnet18
+from experiments.utils import get_device, get_image_by_url, confusion_matrix_as_img
 
 
 def show_single_predict(model: CifarResnet18, image_url: str) -> None:
@@ -16,7 +17,7 @@ def show_single_predict(model: CifarResnet18, image_url: str) -> None:
     plt.figure(figsize=(4, 4))
     plt.imshow(image)
     plt.axis('off')
-    plt.title(f'Class: {i_class} ({name})')
+    plt.title('Class: {i_class} ({name})'.format(i_class=i_class, name=name))
     plt.show()
 
 

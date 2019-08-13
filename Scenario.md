@@ -22,11 +22,18 @@ Share and pick up results:
 ### Main part
 
 #### 0. User registration
-* It is assumed, that user credentials are already added to your server.
-
+```
+set REGION "us-east1"
+set BUCKET_NAME "data-main"
+```
 
 #### 1. Upload a dataset
-* `rsync -rv -e "ssh -p $PORT" $USER@$IP:$PATH_TO_CIFAR $LOCAL_PATH_TO_CIFAR`
+```
+gsutil -m cp -r cifar10/ gs://$BUCKET_NAME/
+<...>
+[60.0k/60.0k files][129.4 MiB/129.4 MiB] 100% Done 181.1 KiB/s ETA 00:00:00   
+Operation completed over 60.0k objects/129.4 MiB.
+```
 
 
 #### 2. Upload the code

@@ -2,14 +2,15 @@ from pathlib import Path
 
 import numpy as np
 import torch
-from dataset import CIFAR_SIZE
-from network import CifarResnet18
 from tensorboardX import SummaryWriter
 from torch import nn
 from torch.utils.data import DataLoader
 from torchvision.datasets import DatasetFolder
-from tqdm import tqdm
-from utils import get_device
+# from tqdm import tqdm
+
+from experiments.dataset import CIFAR_SIZE
+from experiments.network import CifarResnet18
+from experiments.utils import get_device
 
 
 class Trainer:
@@ -27,7 +28,7 @@ class Trainer:
         self._log_dir = log_dir
         self._batch_size = batch_size
 
-        self._writer = SummaryWriter(log_dir / 'board')
+        self._writer = SummaryWriter(str(log_dir / 'board'))
 
         self._optimizer = torch.optim.SGD(params=self._model.parameters(), lr=1e-1)
         self._device = get_device()
@@ -46,7 +47,7 @@ class Trainer:
                             num_workers=4, batch_size=self._batch_size,
                             drop_last=True)
 
-        for img, label in tqdm(loader):
+        for i, (img, label) in enumerate(loader):
             self._optimizer.zero_grad()
 
             pred = self._model(img.to(self._device))
@@ -58,6 +59,8 @@ class Trainer:
 
             self._writer.add_scalar('loss', loss_v, self._i_global)
             self._i_global += 1
+
+            print('train ', i)
 
     def test(self) -> float:
         preds, gts = self._model.evaluate(device=self._device,
@@ -74,6 +77,6 @@ class Trainer:
             self.train_epoch()
             acc = self.test()
 
-            print(f'Epoch {i} | accuracy: {acc}')
+            print('Epoch {i} | accuracy: {acc}'.format(i=i, acc=acc))
 
         self._model.save(self._log_dir / 'last.ckpt')
