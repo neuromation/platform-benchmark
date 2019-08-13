@@ -34,11 +34,16 @@ logs and results -> /project/results/
 
 ```
 code/ - a place for all code, including tests
-data/ - a place for the data, in .gitignore
+  __init__.py - an empty file to keep this folder under Git
+data/ - a place for the data
+  .gitignore - a file excluding the content of this folder from Git
 notebooks/ - a place for Jupyter notebooks
-requirements/ - a place for apt.txt and pip.txt
+  .gitignore - an empty file to keep this folder under Git
+requirements/ - a place for requirements, used by Makefile to setup environment
+  apt.txt - a file with system requirements
+  pip.txt - a file with pip requirements
 
-.gitignore - standard Python exclusions + ML specific + this template
+.gitignore - standard Python exclusions + ML specific
 Makefile - main entry point, to be described later
 README.md - should include Makefile reference
 setup.cfg - linter settings
@@ -50,8 +55,7 @@ setup.cfg - linter settings
 #### Setup 
 | Command | Scope | Purpose | Notes |
 |---|---|---|---|
-| login | remote | login to Neuro Platform | ... |
-| ps | remote | look at the list of jobs | ... |
+| setup | remote | install system and pip dependencies | ... |
 
 #### Storage
 | Command | Scope | Purpose | Notes |
@@ -88,11 +92,9 @@ setup.cfg - linter settings
 
 ### Open questions and ideas
 
-* GitHub ignore empty folders, doesn't it? If so, we'll have to put a bit of something 
-in `data`, `code`, and `notebooks` folders.
-* Is it possible to have a `data` folder in a `cookiecutter` template, 
-which is in `.gitignore`? 
+* How to create a directory on storage when copying everything?
 * Do we need more local operations in Makefile?
+* Is Keras included in tensorflow package or should we install it separately?
 * Is Tensorboard included to the image we build with generator? 
 If so, should we use our image instead of `tensorflow/tensorflow`?
 * We can add SSH support in Docker; then we'll need to run a develop job 
