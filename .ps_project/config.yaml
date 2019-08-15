@@ -1,27 +1,27 @@
 version: 1
 
 project: "prc3o5n5g"
-experiment: "experiment-name" #[optional, default:<repo name>]
+experiment: "cifar-platfrom-benchmark" #[optional, default:<repo name>]
 type: "single" #[single|multi-grpc|multi-mpi]
 ports: "5000" #[optional, default:5000]
 
 paths: #[optional]
-  workdir: "/path/to/workdir"
-  artifacts: "/path/to/artifacts"
-model: #[optional, but required for model parsing and model deployments]
-  type: "model-type" #[required for model, one of: Tensorflow|ONNX|Custom]
-  path: "/path/to/model"
+  workdir: "/home/playground"
+  artifacts: "/artifacts/cifar-platfrom-benchmark"
+#model: #[optional, but required for model parsing and model deployments]
+#  type: "model-type" #[required for model, one of: Tensorflow|ONNX|Custom]
+#  path: "/path/to/model"
 
 worker:
   container: "tensorflow/tensorflow:1.8.0-gpu"
   command: "nvidia-smi"
   machine-type: "K80"
   count: 1 #[required for multi-node]
-parameter-server: #[required for multi-node]
-  container: "tensorflow/tensorflow:1.8.0-gpu"
-  command: "nvidia-smi"
-  machine-type: "K80"
-  count: 1
+#parameter-server: #[required for multi-node]
+#  container: "tensorflow/tensorflow:1.8.0-gpu"
+#  command: "nvidia-smi"
+#  machine-type: "K80"
+#  count: 1
 filters:
   branches:
     ignore: irrelevant-branch
