@@ -1,6 +1,6 @@
 version: 1
 
-project: "project-handle"
+project: "prc3o5n5g"
 experiment: "experiment-name" #[optional, default:<repo name>]
 type: "experiment-type" #[single|multi-grpc|multi-mpi]
 ports: "5000" #[optional, default:5000]
