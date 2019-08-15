@@ -36,7 +36,7 @@ class Trainer:
 
         weights = torch.ones(CIFAR_SIZE)
         # increase weight for worst class (needed to define by conf matrix)
-        # weights[5] = 3
+        weights[5] = 3
         self._criterion = nn.CrossEntropyLoss(weights.to(self._device))
 
     def train_epoch(self) -> None:

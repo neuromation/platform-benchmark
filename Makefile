@@ -1,7 +1,7 @@
-REGION ?= "us-east1"
-BUCKET ?= "data-main"
-JOB_NAME ?= "overview_$(shell date +%Y_%m_%d_%H_%M_%S)"
-GOOGLE_APPLICATION_CREDENTIALS ?= "/home/george/Downloads/My First Project-77543fdc6ed9.json"
+REGION ?= us-east1
+BUCKET ?= data-main
+JOB_NAME ?= overview_$(shell date +%Y_%m_%d_%H_%M_%S)
+GOOGLE_APPLICATION_CREDENTIALS ?= /home/george/Downloads/My First Project-77543fdc6ed9.json
 
 
 .PHONY: lint
@@ -14,7 +14,7 @@ lint:
 run:
 	gcloud ai-platform jobs submit training \
 	    $(JOB_NAME) \
-	    --scale-tier basic \
+	    --scale-tier basic-gpu \
 	    --package-path ./experiments \
 	    --module-name experiments.train \
 	    --region $(REGION) \
@@ -23,7 +23,7 @@ run:
 	    --runtime-version 1.14 \
 	    -- \
 	    --dataset-gs-path "gs://$(BUCKET)/cifar10" \
-	    --logs-gs-path "gs://$(BUCKET)/logs"
+	    --logs-gs-path "gs://$(BUCKET)/logs/$(JOB_NAME)"
 
 
 .PHONY: local
@@ -32,4 +32,4 @@ local:
 	    --dataset-gs-path "gs://$(BUCKET)/cifar10" \
 	    --logs-gs-path "gs://$(BUCKET)/logs"
 
-# 	    --stream-logs \
+
