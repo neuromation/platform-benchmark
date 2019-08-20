@@ -106,10 +106,9 @@ setup.py - basic installation information
 
 ### TODOs
 
-* Is TensorBoard included to the image we build with generator? 
-  If so, should we use our image instead of `tensorflow/tensorflow`?
 * TODO: add SSH support in Docker; then we'll need to run a `develop` job 
-  and port-forward it.
+  and port-forward it; as inspiration use 
+  https://github.com/neuromation/research-models/blob/master/synthetic-reverse/Dockerfile
 * TODO: make a proper list of local commands (lint, install, etc).
 * TODO: install apt dependencies in `setup`.
 * TODO: how to fix this without creating a folder manually?
@@ -120,4 +119,5 @@ Copy 'file:///Users/mariyadavydova/projects/neuromation/platform_benchmark/bench
 ERROR: File not found ([Errno 2] No such directory: 
   'storage://mariyadavydova/benchmark-test')
 ```
-* TODO: add a list of make commands (help?).
+* TODO: add a list of make commands (some kind of help?).
+* TODO: make Jupyter notebooks in this benchmark to run.

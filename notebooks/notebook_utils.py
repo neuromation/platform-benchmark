@@ -3,9 +3,9 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL.Image import Image as TImage
-from dataset import CLASSES_NAMES, get_datasets
-from network import CifarResnet18
-from utils import get_device, get_image_by_url, confusion_matrix_as_img
+from benchmark.dataset import CLASSES_NAMES, get_datasets
+from benchmark.network import CifarResnet18
+from benchmark.utils import get_device, get_image_by_url, confusion_matrix_as_img
 
 
 def show_single_predict(model: CifarResnet18, image_url: str) -> None:
