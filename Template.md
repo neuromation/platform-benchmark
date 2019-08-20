@@ -23,10 +23,11 @@ neuro image push neuro/base
 ### Docker folders contract
 
 ```
-data/ -> /project/data/
-code/ -> /project/code/
-notebooks/ -> /project/notebooks/
-logs and results -> /project/results/
+data/ -> storage:{project_path}/data -> /project/data/
+code/ -> storage:{project_path}/code -> /project/code/
+notebooks/ -> storage:{project_path}/notebooks -> /project/notebooks/
+requirements/ -> storage:{project_path}/requirements -> /project/requirements/
+logs and results -> storage:{project_path}/results -> /project/results/
 ```
 
 
@@ -103,11 +104,20 @@ setup.py - basic installation information
 | ps | remote | look at the list of jobs | ... |
 
 
-### Open questions and ideas
+### TODOs
 
-* How to create a directory on storage when copying everything?
 * Is TensorBoard included to the image we build with generator? 
-If so, should we use our image instead of `tensorflow/tensorflow`?
-* We can add SSH support in Docker; then we'll need to run a develop job 
-and port-forward it.
-* TODO: make a proper list of local commands (lint, install, etc)
+  If so, should we use our image instead of `tensorflow/tensorflow`?
+* TODO: add SSH support in Docker; then we'll need to run a `develop` job 
+  and port-forward it.
+* TODO: make a proper list of local commands (lint, install, etc).
+* TODO: install apt dependencies in `setup`.
+* TODO: how to fix this without creating a folder manually?
+```
+neuro cp -r benchmark storage:benchmark-test/benchmark
+Copy 'file:///Users/mariyadavydova/projects/neuromation/platform_benchmark/benchmark' => 
+  'storage://mariyadavydova/benchmark-test/benchmark'
+ERROR: File not found ([Errno 2] No such directory: 
+  'storage://mariyadavydova/benchmark-test')
+```
+* TODO: add a list of make commands (help?).

@@ -1,36 +1,56 @@
-CODE_PATH?=code/
-DATA_PATH?=data/
-NOTEBOOKS_PATH?=notebooks/
+CODE_PATH?=benchmark
+DATA_PATH?=data
+NOTEBOOKS_PATH?=notebooks
+REQUIREMENTS_PATH?=requirements
+RESULTS_PATH?=results
+PROJECT_PATH_STORAGE?=storage:benchmark-again
+CODE_PATH_STORAGE?=$(PROJECT_PATH_STORAGE)/$(CODE_PATH)
+DATA_PATH_STORAGE?=$(PROJECT_PATH_STORAGE)/$(DATA_PATH)
+NOTEBOOKS_PATH_STORAGE?=$(PROJECT_PATH_STORAGE)/$(NOTEBOOKS_PATH)
+REQUIREMENTS_PATH_STORAGE?=$(PROJECT_PATH_STORAGE)/$(REQUIREMENTS_PATH)
+RESULTS_PATH_STORAGE?=$(PROJECT_PATH_STORAGE)/$(RESULTS_PATH)
 
-PROJECT_PATH_STORAGE?=storage:benchmark/
-CODE_PATH_STORAGE?=$(PROJECT_PATH_STORAGE)$(CODE_PATH)
-DATA_PATH_STORAGE?=$(PROJECT_PATH_STORAGE)$(DATA_PATH)
-NOTEBOOKS_PATH_STORAGE?=$(PROJECT_PATH_STORAGE)$(NOTEBOOKS_PATH)
-RESULTS_PATH_STORAGE?=$(PROJECT_PATH_STORAGE)$(RESULTS_PATH)
+PROJECT_PATH_ENV?=/project
+CODE_PATH_ENV?=$(PROJECT_PATH_ENV)/$(CODE_PATH)
+DATA_PATH_ENV?=$(PROJECT_PATH_ENV)/$(DATA_PATH)
+NOTEBOOKS_PATH_ENV?=$(PROJECT_PATH_ENV)/$(NOTEBOOKS_PATH)
+REQUIREMENTS_PATH_ENV?=$(PROJECT_PATH_ENV)/$(REQUIREMENTS_PATH)
+RESULTS_PATH_ENV?=$(PROJECT_PATH_ENV)/$(RESULTS_PATH)
 
-CODE_PATH_ENV?=/project/code/
-DATA_PATH_ENV?=/project/data/
-NOTEBOOKS_PATH_ENV?=/project/notebooks/
-RESULTS_PATH_ENV?=/project/results/
-
+SETUP_NAME?=setup
 TRAINING_NAME?=training
 JUPYTER_NAME?=jupyter
 TENSORBOARD_NAME?=tensorboard
 FILEBROWSER_NAME?=filebrowser
 
 BASE_ENV_NAME?=image:neuro/base
+CUSTOM_ENV_NAME?=image:neuro/custom
 
 ##### SETUP #####
 
 .PHONY: setup
 setup:
-	echo "Not implemented!"
+	neuro kill $(SETUP_NAME)
+	neuro run \
+		--name $(SETUP_NAME) \
+		--preset cpu-small \
+		--detach \
+		--volume $(PROJECT_PATH_STORAGE):$(PROJECT_PATH_ENV):ro \
+		$(BASE_ENV_NAME) \
+		'tail -f /dev/null'
+	neuro cp -r $(REQUIREMENTS_PATH) $(REQUIREMENTS_PATH_STORAGE)
+	# For some reason the second command fails:
+	# neuro exec $(SETUP_NAME) 'apt-get update'
+	# neuro exec $(SETUP_NAME) 'cat $(REQUIREMENTS_PATH_ENV)/apt.txt | xargs apt-get install -y'
+	neuro exec $(SETUP_NAME) 'pip install -r $(REQUIREMENTS_PATH_ENV)/pip.txt'
+	neuro job save $(SETUP_NAME) $(CUSTOM_ENV_NAME)
+	neuro kill $(SETUP_NAME)
 
 ##### STORAGE #####
 
 .PHONY: upload_code
 upload_code:
-	neuro cp -r $(CODE_PATH) $(CODE_PATH_STORAGE)
+	neuro cp -r -T $(CODE_PATH) $(CODE_PATH_STORAGE)
 
 .PHONY: clean_code
 clean_code:
@@ -38,7 +58,7 @@ clean_code:
 
 .PHONY: upload_data
 upload_data:
-	neuro storage load -pu $(DATA_PATH) $(DATA_PATH_STORAGE)
+	neuro storage load -p -u -T $(DATA_PATH) $(DATA_PATH_STORAGE)
 
 .PHONY: clean_data
 clean_data:
@@ -46,7 +66,7 @@ clean_data:
 
 .PHONY: upload_notebooks
 upload_notebooks:
-	neuro cp -r $(NOTEBOOKS_PATH) $(NOTEBOOKS_PATH_STORAGE)
+	neuro cp -r -T $(NOTEBOOKS_PATH) $(NOTEBOOKS_PATH_STORAGE)
 
 .PHONY: download_notebooks
 download_notebooks:
@@ -66,15 +86,22 @@ clean: clean_code clean_data clean_notebooks
 
 .PHONY: run_training
 run_training:
-	echo "Not implemented!"
+	neuro run \
+		--name $(TRAINING_NAME) \
+		--preset gpu-small \
+		--volume $(DATA_PATH_STORAGE):$(DATA_PATH_ENV):ro \
+		--volume $(CODE_PATH_STORAGE):$(CODE_PATH_ENV):ro \
+		--volume $(RESULTS_PATH_STORAGE):$(RESULTS_PATH_ENV):rw \
+		$(CUSTOM_ENV_NAME) \
+		'python $(CODE_PATH_ENV)/train.py --log_dir $(RESULTS_PATH_ENV) --data_root $(DATA_PATH_ENV)/cifar10'
 
 .PHONY: kill_training
 kill_training:
-	echo "Not implemented!"
+	neuro kill $(TRAINING_NAME)
 
 .PHONY: connect_training
 connect_training:
-	echo "Not implemented!"
+	neuro exec $(TRAINING_NAME) bash
 
 .PHONY: run_jupyter
 run_jupyter:
@@ -86,7 +113,7 @@ run_jupyter:
 		--volume $(CODE_PATH_STORAGE):$(CODE_PATH_ENV):rw \
 		--volume $(NOTEBOOKS_PATH_STORAGE):$(NOTEBOOKS_PATH_ENV):rw \
 		--volume $(RESULTS_PATH_STORAGE):$(RESULTS_PATH_ENV):rw \
-		$(BASE_ENV_NAME) \
+		$(CUSTOM_ENV_NAME) \
 		'jupyter notebook --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.token= --notebook-dir=$(NOTEBOOKS_PATH_ENV)'
 	neuro job browse $(JUPYTER_NAME)
 
@@ -96,11 +123,18 @@ kill_jupyter:
 
 .PHONY: run_tensorboard
 run_tensorboard:
-	echo "Not implemented!"
+	neuro run \
+		--name $(TENSORBOARD_NAME) \
+		--preset cpu-small \
+		--http 6006 --no-http-auth --detach \
+		--volume $(RESULTS_PATH_STORAGE):$(RESULTS_PATH_ENV):ro \
+		$(CUSTOM_ENV_NAME) \
+		'tensorboard --logdir=$(RESULTS_PATH_ENV)'
+	neuro job browse $(TENSORBOARD_NAME)
 
 .PHONY: kill_tensorboard
 kill_tensorboard:
-	echo "Not implemented!"
+	neuro kill $(TENSORBOARD_NAME)
 
 .PHONY: run_filebrowser
 run_filebrowser:
