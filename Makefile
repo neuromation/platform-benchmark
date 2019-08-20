@@ -48,6 +48,10 @@ clean_data:
 upload_notebooks:
 	neuro cp -r $(NOTEBOOKS_PATH) $(NOTEBOOKS_PATH_STORAGE)
 
+.PHONY: download_notebooks
+download_notebooks:
+	neuro cp -r $(NOTEBOOKS_PATH_STORAGE) $(NOTEBOOKS_PATH)
+
 .PHONY: clean_notebooks
 clean_notebooks:
 	neuro rm -r $(NOTEBOOKS_PATH_STORAGE)
@@ -79,7 +83,7 @@ run_jupyter:
 		--preset gpu-small \
 		--http 8888 --no-http-auth --detach \
 		--volume $(DATA_PATH_STORAGE):$(DATA_PATH_ENV):ro \
-		--volume $(CODE_PATH_STORAGE):$(CODE_PATH_ENV):ro \
+		--volume $(CODE_PATH_STORAGE):$(CODE_PATH_ENV):rw \
 		--volume $(NOTEBOOKS_PATH_STORAGE):$(NOTEBOOKS_PATH_ENV):rw \
 		--volume $(RESULTS_PATH_STORAGE):$(RESULTS_PATH_ENV):rw \
 		$(BASE_ENV_NAME) \
@@ -115,12 +119,22 @@ kill_filebrowser:
 .PHONY: kill
 kill: kill_training kill_jupyter kill_tensorboard kill_filebrowser
 
-##### MISC #####
+##### LOCAL #####
+
+.PHONY: setup_local
+setup_local:
+	pip install -r requirements/pip.txt
 
 .PHONY: lint
 lint:
 	flake8 .
 	mypy .
+
+.PHONY: install
+install:
+	python setup.py install --user
+
+##### MISC #####
 
 .PHONY: ps
 ps:
