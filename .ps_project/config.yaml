@@ -5,6 +5,7 @@ experiment: "cifar-platfrom-benchmark" #[optional, default:<repo name>]
 type: "single" #[single|multi-grpc|multi-mpi]
 ports: "5000" #[optional, default:5000]
 
+
 paths: #[optional]
   workdir: "/home/playground"
   artifacts: "/artifacts/cifar-platfrom-benchmark"
@@ -38,4 +39,3 @@ checks: #[optional]
     precision: 3
 
 
-  
