@@ -38,13 +38,12 @@ and write down all our actions in [Scenario.md](Scenario.md)
 ## Comparison results
 At all points of comparison, we rated 0, 1, 2, or 3.
 
-|                     | Setting up a training environment | Data ingestion | Remote debugging | Sharing with engineers | Sharing with non-engineers | Sharing datasets and environments |
-|---------------------|:-----:|:-----:|:-----:|:-----:|:-----:|:-----:|
-| Neuro               |   1   |   2   |   2   |   3   |   3   |   3   |
-| AWS SageMaker       |       |       |       |       |       |       |
-| Google AI Platform  |       |       |       |       |       |       |
-| Azure AI            |       |       |       |       |       |       |
-| Floydhub            |   2   |   3   |   0   |   2   |   0   |   3   |
-| Paperspace Gradient |       |       |       |       |       |       |
-| Determined.ai       |       |       |       |       |       |       |
-| Databricks          |       |       |       |       |       |       |
+|                                                                                             | Developer Experience | ML Environments | Data Ingestion | AI Starter Kits | Collaboration | Bring Your Own Cloud | Enterprise-ready | **Total** |
+| ------------------------------------------------------------------------------------------- | :------------------: | :-------------: | :------------: | :-------------: | :-----------: | :------------------: | :--------------: | :-------: |
+| [Neuro Platform](https://forum.neu.ro/t/neuro-platform-overview/14)                         |          3           |        3        |       3        |        3        |       3       |          2           |        1         |    18     |
+| [AWS SageMaker](https://forum.neu.ro/t/aws-sagemaker-overview/15)                           |          1           |        1        |       3        |        3        |       3       |          1           |        3         |    15     |
+| [Google AI Platform](https://forum.neu.ro/t/google-ai-platform-overview/16)                 |          2           |        0        |       0        |        3        |       3       |          1           |        3         |    12     |
+| [Azure Machine Learning](https://forum.neu.ro/t/azure-machine-learning-service-overview/17) |          3           |        3        |       2        |        3        |       3       |          1           |        3         |    18     |
+| [FloydHub](https://forum.neu.ro/t/floydhub-overview/18)                                     |          2           |        2        |       3        |        3        |       2       |          3           |        2         |    17     |
+| [Paperspace Gradient](https://forum.neu.ro/t/paperspace-gradient-overview/20)               |          2           |        3        |       2        |        3        |       3       |          3           |        1         |    17     |
+| [Determined AI](https://forum.neu.ro/t/determined-ai-overview/19)                           |          2           |        1        |       2        |        3        |       3       |          3           |        2         |    16     |
