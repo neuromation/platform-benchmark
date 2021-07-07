@@ -3,13 +3,14 @@ from typing import List, Tuple
 
 import torch
 from PIL.Image import Image
-from dataset import get_transforms, CIFAR_SIZE
 from torch import Tensor
 from torch import nn
 from torch.utils.data import DataLoader
 from torchvision.datasets import DatasetFolder
 from torchvision.models import resnet18
-from tqdm import tqdm
+# from tqdm import tqdm
+
+from experiments.dataset import get_transforms, CIFAR_SIZE
 
 
 class CifarResnet18(nn.Module):
@@ -29,7 +30,7 @@ class CifarResnet18(nn.Module):
 
     def save(self, path_to_ckpt: Path) -> None:
         checkpoint = {'state_dict': self._model.state_dict()}
-        torch.save(checkpoint, path_to_ckpt)
+        torch.save(checkpoint, str(path_to_ckpt))
 
     def evaluate(self,
                  device: torch.device,
@@ -43,15 +44,17 @@ class CifarResnet18(nn.Module):
                             num_workers=4, batch_size=batch_size,
                             drop_last=False)
 
-        preds: List[int] = []
-        gts: List[int] = []
+        preds = []
+        gts = []
 
         with torch.no_grad():
-            for img, label in tqdm(loader):
+            for i, (img, label) in enumerate(loader):
                 pred = torch.argmax(self._model(img.to(device)), dim=1)
 
                 preds.extend(pred.detach().cpu().numpy().tolist())
                 gts.extend(label.numpy().tolist())
+
+                print('evaluate ', i)
 
         return preds, gts
 

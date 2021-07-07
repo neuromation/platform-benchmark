@@ -23,15 +23,15 @@ def get_transforms() -> t.Compose:
 def get_datasets(train_root: Path,
                  test_root: Path
                  ) -> Tuple[DatasetFolder, DatasetFolder]:
-    read_func, ext = PIL.Image.open, ['png']
+    read_func, ext = PIL.Image.open, ('png')
 
     transforms = get_transforms()
 
-    train_set = DatasetFolder(root=train_root, loader=read_func,
+    train_set = DatasetFolder(root=str(train_root), loader=read_func,
                               extensions=ext, transform=transforms,
                               target_transform=None)
 
-    test_set = DatasetFolder(root=test_root, loader=read_func,
+    test_set = DatasetFolder(root=str(test_root), loader=read_func,
                              extensions=ext, transform=transforms,
                              target_transform=None)
 

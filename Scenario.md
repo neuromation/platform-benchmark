@@ -22,37 +22,44 @@ Share and pick up results:
 ### Main part
 
 #### 0. User registration
-* It is assumed, that user credentials are already added to your server.
-
+```
+set REGION "us-east1"
+set BUCKET_NAME "data-main"
+```
 
 #### 1. Upload a dataset
-* `rsync -rv -e "ssh -p $PORT" $USER@$IP:$PATH_TO_CIFAR $LOCAL_PATH_TO_CIFAR`
-
-
-#### 2. Upload the code
-* Connect to server: `ssh -p $PORT $USER@$IP`
-* Change directory: `cd $PATH_TO_CODE`
-* Get code: `git clone git@github.com:neuromation/platform_benchmark.git`
+```
+gsutil -m cp -r cifar10/ gs://$BUCKET_NAME/
+<...>
+[60.0k/60.0k files][129.4 MiB/129.4 MiB] 100% Done 181.1 KiB/s ETA 00:00:00   
+Operation completed over 60.0k objects/129.4 MiB.
+```
 
 
 #### 3. Run a training script
-* Install requirements: `pip install -r requirements.txt`
-* Run training: `python experiments/train.py --log_dir $PATH_TO_LOGS --data_root $PATH_TO_CIFAR`
-
+```
+gcloud ai-platform jobs submit training \
+	    $(JOB_NAME) \
+	    --scale-tier basic \
+	    --package-path ./experiments \
+	    --module-name experiments.train \
+	    --region $(REGION) \
+	    --staging-bucket gs://$(BUCKET) \
+	    --python-version 3.5 \
+	    --runtime-version 1.14 \
+	    -- \
+	    --dataset-gs-path "gs://$(BUCKET)/cifar10" \
+	    --logs-gs-path "gs://$(BUCKET)/logs"
+```
+This command both uploads the code and runs it 
 
 #### 4. Look at the training logs
-* Run TensorBoard: `tensorboard --logdir=$PATH_TO_LOGS --port $TB_PORT`
-* Start listening this port on your machine: `ssh -L $TB_PORT:localhost:$TB_PORT -p $PORT $USER@$IP`
-* Open `http://localhost:$TB_PORT` in your browser and see the graphics.
+* Authenticate in gcloud in order to give tensorboard an access to gstorage: `gcloud auth application-default login`
+* Run TensorBoard: `tensorboard --logdir=gs://$BUCKET/logs/board`
 
 
 #### 5. Visualize predictions
-* Go to the code directory: `cd $PATH_TO_CODE`
-* Run Jupyter: `jupyter notebook --no-browser --allow-root  --port $JUP_PORT`
-* Start listening this port on your machine: `ssh -L $JUP_PORT:localhost:$JUP_PORT -p $PORT $USER@$IP`
-* Open `http://localhost:$JUP_PORT` in your browser, copy & paste security token,
-then go to `experiments/analyse_predict.ipynb` and check out the confusion matrix.
-
+Google AI JupyterLab
 
 #### 6. Run training again with increased weight for the worst class
 * Change the code a little bit (add a couple of strings to change weights in `experiments/trainer.py`).
@@ -70,10 +77,7 @@ then go to `experiments/analyse_predict.ipynb` and check out the confusion matri
 
 
 #### 3. Present a demo to non-engineers using Jupyter
-* Go to the code directory: `cd $PATH_TO_CODE`
-* Run Jupyter: `jupyter notebook --no-browser --allow-root  --port $JUP_PORT`
-* Now you should add credentials of non-engineer members of your team to your server 
-and ask them to start listening the corresponding port via 
-`ssh -L $JUP_PORT:localhost:$JUP_PORT -p $PORT $NON_ENGINEER_USER@$IP`
-* Then, they should open browser and go to `http://localhost:$JUP_PORT`
-* Finally, they should run `experiments/demo.ipynb`
+* Create demo.ipynb in Google AI Platform JupyterLab Web interface
+* Move demo.ipynb to google cloud
+* Give public access: `gsutil acl -r ch -u AllUsers:R gs://data-main/for-demo`
+* Share via [NBViwer](https://nbviewer.jupyter.org/urls/data-main.storage.googleapis.com/for-demo/demo.ipynb) 
