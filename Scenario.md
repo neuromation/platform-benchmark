@@ -22,58 +22,82 @@ Share and pick up results:
 ### Main part
 
 #### 0. User registration
-* It is assumed, that user credentials are already added to your server.
+* You have to create new account via Web UI, you can not use existed `git` or `google` accaunt.
+Then you can login via `spell login` with created login and password.
 
 
 #### 1. Upload a dataset
-* `rsync -rv -e "ssh -p $PORT" $USER@$IP:$PATH_TO_CIFAR $LOCAL_PATH_TO_CIFAR`
+* `spell upload cifar.zip`
+* `spell run -m uploads/cifar:cifar "unzip cifar/cifar.zip"`
+* now we can observe our data via `spell ls runs/2/cifar/`
+
+Or we can use new feature, but it took extremely long time for pending (most likely, unarchiving occurred at this time):
+* `spell upload --compress cifar`
 
 
 #### 2. Upload the code
-* Connect to server: `ssh -p $PORT $USER@$IP`
-* Change directory: `cd $PATH_TO_CODE`
-* Get code: `git clone git@github.com:neuromation/platform_benchmark.git`
+* Code uploading is automatic
 
 
 #### 3. Run a training script
-* Install requirements: `pip install -r requirements.txt`
-* Run training: `python experiments/train.py --log_dir $PATH_TO_LOGS --data_root $PATH_TO_CIFAR`
+* You can run training with via command:
+```
+spell run \
+    --pip-req requirements.txt \
+    -m uploads/cifar:/data \
+    "python experiments/train.py --data_root /data --log_dir logs"
+```
+* This command will match your run with a special `run_id` (1, 2, 3 ...)
 
 
 #### 4. Look at the training logs
-* Run TensorBoard: `tensorboard --logdir=$PATH_TO_LOGS --port $TB_PORT`
-* Start listening this port on your machine: `ssh -L $TB_PORT:localhost:$TB_PORT -p $PORT $USER@$IP`
-* Open `http://localhost:$TB_PORT` in your browser and see the graphics.
+* Utilization logs, training artefacts, tensorboard and text logs can be observed via Web UI
+* For adding tensorboard to your project you must specify `--tensorboard-dir` in run parameters, tensorboard
+will be available during the training
+* Text logs can be observed using: `spell logs {run_id}`
+* Also, artefacts can be found in `runs/{run_id}/logs`
+* We try workaround for viewing tensorbord logs of finished job, but unsuccessfully. We tried the following command: 
+ ```
+spell run \
+    --mount runs/10/logs/board:board/ \
+    --tensorboard-dir board/ \
+    'python -c "import time; time.sleep(3600)"'
+```
+, but get an error: `cannot mount into TensorBoard directory`.
+So, the only one way to see this logs is download it to local machine and run tensorboard locally.
 
 
 #### 5. Visualize predictions
-* Go to the code directory: `cd $PATH_TO_CODE`
-* Run Jupyter: `jupyter notebook --no-browser --allow-root  --port $JUP_PORT`
-* Start listening this port on your machine: `ssh -L $JUP_PORT:localhost:$JUP_PORT -p $PORT $USER@$IP`
-* Open `http://localhost:$JUP_PORT` in your browser, copy & paste security token,
-then go to `experiments/analyse_predict.ipynb` and check out the confusion matrix.
-
+* Command for running jupyter:
+```
+spell jupyter \
+    --mount runs/10/logs/:data \
+    --mount uploads/cifar/:dataset \
+    --pip-req requirements.txt \
+    cifar_workspace
+```
 
 #### 6. Run training again with increased weight for the worst class
-* Change the code a little bit (add a couple of strings to change weights in `experiments/trainer.py`).
-* Add changes to `git` and push them to server.
-* Run training again: `python experiments/train.py --log_dir $PATH_TO_LOGS --data_root $PATH_TO_CIFAR`
+* Just change the code locally, your next run will automatically upload last version of code to the server.
+* Add changes to local `git` and push them to remote repository, if you want.
+
 
 ### Share and pick up results:
 
 #### 1. Download a checkpoint
-* `rsync -v -e "ssh -p $PORT" $USER@$IP:$PATH_TO_LOGS/last.ckpt $LOCAL_PATH_TO_CKPT`
+* `spell cp runs/{run_id}/logs/last.ckpt last.ckpt`
 
 
 #### 2. Share a checkpoint with other platform users
-* `sudo chmod 777 $PATH_TO_LOGS/last.ckpt`
+* There is special command for sharing:
+`spell link cifar_ckpt runs/{run_id}/logs/last.ckpt`, it's output is
+`cifar_ckpt → runs/{run_id}/last.ckpt`. 
+* Now, the link alias `cifar_ckpt` can be used in other Spell commands.
 
 
 #### 3. Present a demo to non-engineers using Jupyter
-* Go to the code directory: `cd $PATH_TO_CODE`
-* Run Jupyter: `jupyter notebook --no-browser --allow-root  --port $JUP_PORT`
-* Now you should add credentials of non-engineer members of your team to your server 
-and ask them to start listening the corresponding port via 
-`ssh -L $JUP_PORT:localhost:$JUP_PORT -p $PORT $NON_ENGINEER_USER@$IP`
-* Then, they should open browser and go to `http://localhost:$JUP_PORT`
-* Finally, they should run `experiments/demo.ipynb`
+* You can share a view-only version of a Notebook file (`.ipynb`) 
+to users within your organization. To do this, navigate to the Files tab of your Workspace, 
+find the `.ipynb` file you want to share, click the three dot action item on the right side
+ of the row, and select Open as view only. You can now share this page with anyone with
+  access to your Spell organization. (From `spell.run/docs.`)
